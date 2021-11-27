@@ -1,5 +1,6 @@
 {
   "name": "react-dictionary-app",
+  "homepage": "https://omerkucuker.github.io/react-dictionary-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
