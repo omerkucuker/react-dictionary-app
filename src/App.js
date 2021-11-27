@@ -1,5 +1,5 @@
 import React, { useState }  from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Favorites from "./components/Favorites.jsx";
 import Homepage from "./components/Homepage.jsx";
 
