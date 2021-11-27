@@ -1,7 +1,7 @@
 import React, { useState }  from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Favorites from "./components/Favorites.jsx";
-import Anasayfa from "./components/Anasayfa.jsx";
+import Homepage from "./components/Homepage.jsx";
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
 
         <Routes>
 
-            <Route path="/" exact element={<Anasayfa favorites={favorites} setFavorites={setFavorites}/>} />
+            <Route path="/" exact element={<Homepage favorites={favorites} setFavorites={setFavorites}/>} />
             <Route path="/favorites"  element={<Favorites favorites={favorites} setFavorites={setFavorites} />}  />
 
         </Routes>

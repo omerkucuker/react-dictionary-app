@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-const Anasayfa = (props) => {
+const Homepage = (props) => {
   let textInput = React.createRef();
   //const [favorites, setFavorites] = useState([]);
   const [words, setWords] = useState([]);
@@ -86,4 +86,4 @@ const Anasayfa = (props) => {
   );
 };
 
-export default Anasayfa;
+export default Homepage;
