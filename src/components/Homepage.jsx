@@ -15,7 +15,20 @@ const Homepage = (props) => {
 
   const onOnclickHandler = (e) => {
     let dictionaryService = new DictionaryService();
-    dictionaryService.getWords(textInput.current.value).then((result) => setWords(result.data));
+    if (textInput.current.value === "")
+      alert("search input is null")
+    else{
+      
+        let result = dictionaryService.getWords(textInput.current.value)
+        result.then((result) => {
+          if (result === undefined)
+              alert("Please enter a valid word")
+          else
+            setWords(result.data)
+
+        } )
+      
+    }
   };
 
   function handleAdd() {
@@ -24,7 +37,7 @@ const Homepage = (props) => {
     else {
       const newList = props.favorites.concat(textInput.current.value);
       props.setFavorites(newList);
-      toast.success(`${textInput.current.value} is added from the list`)
+      toast.success(`${textInput.current.value} is added to the list`)
     }
 
 
@@ -42,8 +55,8 @@ const Homepage = (props) => {
         <input ref={textInput} type="text" placeholder="Enter word for definition" />
         <i className="search icon"></i>
       </div>
-      <Button primary size='big' onClick={onOnclickHandler} >Search</Button>
-      <Link to="/favorites" className="ui big right floated red button">
+      <Button primary size='big' onClick={onOnclickHandler} >Search</Button> <div><br></br></div>
+      <Link to="/favorites" className="ui big red button">
         <i className="heart icon"></i>
         Favorites
       </Link>
@@ -69,7 +82,7 @@ const Homepage = (props) => {
                 />
 
 
-              </div>
+              </div><div><br></br></div>
               <div className="ui red button" onClick={handleAdd}>
                 <i className="heart icon"></i> Add To Favorites
               </div>

@@ -16,9 +16,9 @@ const Favorites = (props) => {
     <div>
 
       <div className="ui big label">
-        Favorites Page </div>
+        Favorites Page </div> <div><br></br></div>
       <Link to="/" >
-        <button className="ui big right floated primary button">
+        <button className="ui big primary button">
           <i className="home icon"></i>
           Back To Home Page
         </button>
