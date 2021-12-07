@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 const Favorites = (props) => {
+  const [, setFav] = useState([]);
 
   function handleRemove(id) {
-    const newList = props.favorites.filter((favorites) => favorites !== id);
-    props.setFavorites(newList);
+    //const newList = props.favorites.filter((favorites) => favorites !== id);
+    //props.setFavorites(newList);
+    localStorage.removeItem(id)
+    setFav(id)
     toast.success(`${id} is removed from the list`)
   }
   //console.log(props.favorites)
+
+  function allStorage() {
+
+    var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+
+    while ( i-- ) {
+        values.push( localStorage.getItem(keys[i]) );
+    }
+
+    return values;
+}
   return (
 
     <div>
@@ -23,9 +39,9 @@ const Favorites = (props) => {
           Back To Home Page
         </button>
       </Link>
-
-      <div className="ui big list">
-        {props.favorites.map((favorites) => {
+      <br></br><br></br>
+      <div>{allStorage().length===0 ?   <h2>List is empty.</h2> :  <div className="ui big list">
+        {allStorage().map((favorites) => {
           return (
             <div className="item" key={favorites}>
 
@@ -43,7 +59,9 @@ const Favorites = (props) => {
             </div>
           );
         })} {" "}
-      </div>
+      </div>}</div>
+
+     
       <ToastContainer />
 
     </div>

@@ -32,11 +32,12 @@ const Homepage = (props) => {
   };
 
   function handleAdd() {
-    if (props.favorites.indexOf(textInput.current.value) > -1)
+    if ((localStorage.getItem(textInput.current.value))) //(props.favorites.indexOf(textInput.current.value) > -1)
       alert("This item is already added to list")
     else {
-      const newList = props.favorites.concat(textInput.current.value);
-      props.setFavorites(newList);
+      //const newList = props.favorites.concat(textInput.current.value);
+     // props.setFavorites(newList);
+      localStorage.setItem(textInput.current.value,textInput.current.value)
       toast.success(`${textInput.current.value} is added to the list`)
     }
 
